@@ -76,14 +76,12 @@ GitHub juga memberikan layanan cloud untuk menyimpan dan mengelola project/repos
 ## **Pengertian HTML**
 Hypertext Markup Languange atau singkatnya disebut HTMl adalah bahasa markup yang biasa digunakan untuk membuat struktur konten pada suatu website, HTML merupakan pondasi utama dalam membangun visual yang kita tampilkan pada antarmuka web browser.
 ## **Tools yang dapat digunakan untuk membuat HTML**
-- Visual Studio Code
-- Sublime Text
-- Atom
-- Notepad++
-## **Anatomi pada HTML**
-!["Anatomi HTML"!](img/anatomiHtml.jpg)
-
-`<!DOCTYPE html>
+- Tools yang dibutuhkan untuk untuk membuat HTML yaitu web browser dan code editor
+- Visual Studio Code merupakan salah satu code editor yang dibuat oleh Misrosoft
+- Keunggulan dari Visual Studio Code yaitu Intellisense, Run and Debug,Built in Git, Extensions
+- HTML Structure
+```
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -97,7 +95,190 @@ Hypertext Markup Languange atau singkatnya disebut HTMl adalah bahasa markup yan
             <p>I love learning and sharing</p>
         </div>
     </body>
-</html>`
+</html>
+```
+
+## **Anatomi pada HTML**
+!["Anatomi HTML"!](img/anatomiHtml.jpg)
+- HTML Element terdiri atas opening tag, content, dan closing tag
+Opening Tag : <p>
+Content : Hello World
+Closing Tag : </p>
+- HTML Attributes : properties dari sebuah element HTML. Contohnya yaitu id,class,name
+- Single Tag atau singular tag
+`<br/>`
+`<hr/>`
+`<img src= " " alt= " "/>`
+- Paired Tag atau double Tag
+`<h1> </h1>`
+- HTML Comment digunakan untuk memberi keterangan pada suatu line code `<!-- -->`
+- Salah satu cara menjalankan HTML yaitu menggunakan "Live Server"
+- Pembuatan Tabel
+```         
+         <table border="1">
+            <thead>
+                <tr>
+                    <td>Nama</td>
+                    <td>Umur</td>
+                    <td>Hobby</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chaca</td>
+                    <td>22 y.o</td>
+                    <td>Reading Novel</td>
+                </tr>
+            </tbody>
+        </table>
+```
+## **Semantic HTML**
+yaitu menggunakan elemen HTML sesuai dengan kebutuhan konten. **Contoh :** header, footer, nav, section, aside, dll.
+```
+<body>
+  <header>
+    <h1>My Blog</h1>
+  </header>
+  <nav>
+    <a href="#">Home</a> |
+    <a href="#">About</a> |
+    <a href="#">Contact</a>
+  </nav>
+  <article>
+    <h1>Welcome To My Blog!</h1>
+    <p>Perkenalkan nama saya Ulfa Zakiatul Mardhiah. Biasa dipanggil chaca. Saat ini aku tenggah menempuh semester 8 di Universitas Muhammadiyah Malang. 
+    </p>
+  </article>
+  <footer>
+    Copyright &copy; 2022 by chacacaliza
+  </footer>
+</body>
+```
+
+# **Day 3 : CSS - Cascanding Style Sheet**
+## **Pengertian CSS**
+Cascanding Style Sheet atau yang biasa disingkat dengan CSS adalah bahasa yang digunakan untuk memberikan styling seperti mengubah warna, menggunakan font custom, editing text format, mengatur tata letak pada tiap element tag HTML sehingga membuat tampilan web kita menjadi terlihat menarik.
+
+## **Anatomi CSS**
+!["Anatomi HTML"!](img/cssSelector.jpg)
+- . (titik) : merupakan selektor yg menuju pada tag html yg memiliki properti kelas
+- CSS comment dapat diberika di external css dan internal css /* */
+- Ada 3 cara menggunakan CSS yaitu : <br>
+ Inline Tag : menggunakan css lngsng di atribute elemnt html ``style="properti: value;"`` <br>
+ Internal Tag : menggunakan tag style di bagian head `<style>code...</style>` <br>
+ External Tag : menggunakan file css terpisah dengan html ``<link href="styles.css" type="text/css" rel="stylesheet"/>`` letakan tag link berikut di bagian head
+- Properti CSS contohnya yaitu font-size, color, background-color
+- CSS - Tag Name <br>
+jika menggunakan Tag element HTML maka akan bersifat global yg artinya akan mengubah seluruh html. <br> **Contoh:**   
+```h1 {
+      color: blue; 
+   }
+```
+- CSS - Class Name dengan cara menggunakan selector class <br>
+**Contoh:** <br>
+```
+.text-color-red{
+	        color: red; 
+    }
+```
+
+- Tag Id dan Tag Class bisa dipake di css namun Tag Class lebih bersifat fleksibel karena dapat diberikan lebih dari 1 nilai sedangkan Tag Id bersifat kaku karena hanya memiliki 1 nilai
+- Nested Element yaitu setiap element yang terdiri atas parent dan child
+- !important CSS yaitu styling CSS yang memiliki tingkat paling atas dari ID dan Class.
+
+## **Box Model**
+Pada dasarnya setiap elemen di HTML dapat dianggap sebagai “box”. Yaitu, sebuah “box” yang membungkus elemen secara keseluruhan. Box tersebut terdiri dari beberapa bagian, yaitu ; margin, border, padding, dan content
+- Content : adalah konten dari elemen, biasanya berupa teks atau gambar
+- Border : bagian perantara antara inner space dan outer space dari content
+- Padding : inner space pada content element
+- Margin : outer space atau bisa dibilang bagian terluar dari element 
+## **Position**
+Position pada CSS di gunakan untuk mengatur posisi sebuah element HTML. Jika kita ingin membuat atau menetapkan posisi sebuah element dengan element yang lain. maka dengan menggunakan property position CSS ini kita dapat menentukan posisi sebuah element HTML sesuai dengan yang kita inginkan.
+- Static : Default position yang merupakan lapisan paling bawah.
+- Relative : Lapisan diatas static yang dapat kita beri properti top, left, right, bottom untuk dapat berpindah-pindah dari posisi awal.
+- Absolute : Lapisan position yang akan mengikuti relative parent terdekat dan menempel diatasnya.
+- Fixed : Lapisan Position mutlak yang tidak akan berubah dan relatif terhadap viewport
+- Sticky : Lapisan position yang akan berubah menjadi fixed saat kita melakukan scrolling.
+## **FlexBox**
+- Flexbox adalah suatu cara untuk mengatur layout atau tata letak.
+- Flexbox terdiri 1 parent (container) dan bisa beberapa child.
+- Flex direction digunakan untuk mengatur letak child.
+- Flex wrap mengatur tata letak child pada 1 line.
+- Flex flow yaitu digunakan sebagai shortcut untuk set up - flex-direction dan flex-wrap secara bersamaan.
+- Order digunakan untuk ordering item yang ingin diatur posisinya.
+- Justify - content digunakan untuk mengatur tata letak antar item child secara horizontal.
+- Align - content digunakan untuk mengatur tata letak antar item child secara vertikal atau cross axis.
+- Flex-grow digunakan untuk mengatur size suatu item child pada flexbox
+- Flex-shrink digunakan untuk memperkecil size suatu item child secara relatif terhadap item child lainnya.
+- flex-basis digunakan untuk mengatur width setiap item child.
+ 
+# **Day 4 : Algoritma & Data Struktur**
+## **Pengertian Algoritma**
+Algoritma adalah merupakan langkah-langkah logis yang kita susun secara sistematis untuk dapat menyelesaikan suatu permasalahan.
+- Kualitas suatu algoritma :
+  - Input & output harus jelas/ didefinisikan terlebih dahulu dgn tepat
+  - Setiap step harus benar -benar clear dan tidak ambigu
+  - Algoritma seharusnya tidak mengandung suatu code pada bahas pemrograman tertentu. <br />
+    algoritma harus dibuat agar dapat digunakan dlm bahas pemrograman apapun
+- Kenapa harus mempelajari algotima :
+ Karena programming itu identik dengan 
+memecahkan suatu permasalahan, maka dari itu 
+algoritma merupakan pemeran utamanya. Belajar algoritma sama aja dengan mengingat 
+kembali alur berfikir yg terstruktur
+## **Ciri-ciri algoritma**
+- Input : Memiliki 0 atau lebih inputan.
+- Output : Memiliki min 1 buah output.
+- Definiteness(pasti) : Instruksi jelas tidak ambigu.
+- Finiteness(ada batas) : Memiliki titik berhenti (stop).
+- Effectiveness(tepat dan efisien) : Sebisa mungkin tepat sasaran dan efisien.
+## **Jenis-jenis algoritma**
+- Sequence : Instruksi yg dijalankan. **Contoh:** secara berurutan Gelas diisi dengan air, lalu air siap utk diminum
+- Selection : Instruksi yg dijalankan jika memenuhi suatu 
+kondisi. **Contoh:** Jika lampu merah, saya akan 
+berhenti
+- Iteration : Instruksi yg berulang kali dijalankan selama 
+memenuhi suatu kondisi. **Contoh:**
+Selama belum sampai rumah, 
+saya akan terus menyetir
+- Concurrent : Instruksi yg dijalankan secara bersamaan. **Contoh:** Ibu mencuci baju sambil 
+membersihkan rumah
+## **Penyajian Algoritma**
+### **Deskriptif**
+1. membuka email
+2. menginputkan pesan dan alamat email tujuan
+### **Flowchart**
+### **PseudoCode**
+```
+let email;
+BEGIN
+let message = INPUT(pesan, alamatEmail) {
+    loop(email){
+        if(alamatEmail == email){
+           return DISPLAY(Pesan terkirim ke email tujuan!)
+        }else {
+           return DISPLAY(email tidak diketahui!)
+        }
+    }
+}
+END
+```
+
+- Panduan menulis pseudocode :
+  - Huruf kapital digunakan untuk menulis perintah
+  - 1 statement hanya terdiri dari 1 baris
+  - Menggunakan indentasi
+  - Harus bersifat spesifik dan simple
+
+
+- Jenis Pseudocode :
+  - Procedural : cara berpikir runut 
+  - Conditional: jika dibutuhkan suatu percabangan masalah (if else)
+  - Looping    : sebuah perintah yg diulang-ulang
+  - Recursive  : sebuah perintah yang memanggil method/function didalam sebuah function
+
+
+
+
 
 
 
