@@ -67,11 +67,11 @@ GitHub juga memberikan layanan cloud untuk menyimpan dan mengelola project/repos
  - Setelah kita berhasil melakukan commit, kita dapat mengupload perubahan yang terjadi di lokal repositori ke public atau cloud repositori yang ada di github, untuk dapat melakukan itu kita harus mempunyai akun github terlebih dahulu dan membuat repositori baru
  - Setelah berhasil membuat repositori, kita harus menambahkan remote terlebih dahulu agar repositori lokal kita dapat terhubung ke github, kita dapat menggunakan perintah `git remote add origin <link repo>`
  - Setelah berhasil menambahkan remote, kita dapat melakukan push ke repositori github dengan menggunakan perintah `git push -u origin <nama branch>`
- - Jika kita liat di repositori github maka akan terlihat kalau perubahan-perubahan yang kita lakukan sebelumnya di lokal berhasil berpindah! <img src="img/git-pull.png" alt="git pull" />
+ - Jika kita liat di repositori github maka akan terlihat kalau perubahan-perubahan yang kita lakukan sebelumnya di lokal berhasil berpindah! <img src="img/git-push.png" alt="git push" />
 
  Yang tadi itu adalah alur jika kita ingin membuat projek dari lokal dan ingin mengupload perubahan dari lokal ke public repositori, tapi bagaimana jika kita ingin mengambil projek dari github sehingga bisa kita jadikan sebagai lokal projek kita? 
  - Kita bisa mengkloning projek atau repositori dari github, caranya cukup dengan menyalin link dari repo yang kita inginkan lalu gunakan perintah `git clone <link repo>` pada terminal bash
- - Selain menggunakan perintah `git clone` kita juga bisa mengambil projek dengan melakukan perintah `git pull` untuk menarik tiap perubahan yang ada di repo !["Working Area Git"!](/img/git-pull.png)
+ - Selain menggunakan perintah `git clone` kita juga bisa mengambil projek dengan melakukan perintah `git pull` untuk menarik tiap perubahan yang ada di repo. <img src="img/git-pull.png" alt="git pull" />
 # **Day 2 : HTML - Hypertext Markup Languange**
 ## **Pengertian HTML**
 Hypertext Markup Languange atau singkatnya disebut HTMl adalah bahasa markup yang biasa digunakan untuk membuat struktur konten pada suatu website, HTML merupakan pondasi utama dalam membangun visual yang kita tampilkan pada antarmuka web browser.
