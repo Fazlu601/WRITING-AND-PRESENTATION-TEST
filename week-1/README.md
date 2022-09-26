@@ -60,14 +60,14 @@ GitHub juga memberikan layanan cloud untuk menyimpan dan mengelola project/repos
 - Melihat hasil konfigurasi dengan `git config --list Config list`
 - Tentukan directory yang ingin kita jadikan sebagai repositori dengan memberikan command `git init`
 - Jika sudah kita jadikan sebagai repositori maka git dapat melacak setiap perubahan yang ada dalam repo directory
-- Kita dapat mengecek tiap perubahan tersebut dengan memberi perintah `git status`  !["Working Area Git"!](/img/git-1.png)
+- Kita dapat mengecek tiap perubahan tersebut dengan memberi perintah `git status` <img src="img/git-1.png" alt="git working area" />
 
 - Jika setelah kita cek terdapat perubahan, kita dapat menyimpan perubahan tersebut ke dalam staging area sehingga perubahan tersebut siap kita commit
-- Kita dapat menyimpan perubahan dengan melakukan commit dengan memberi command `git commit -m <pesan>` !["Working Area Git"!](/img/git-2.png)
+- Kita dapat menyimpan perubahan dengan melakukan commit dengan memberi command `git commit -m <pesan>` <img src="img/git-2.png" alt="git staging commit" />
  - Setelah kita berhasil melakukan commit, kita dapat mengupload perubahan yang terjadi di lokal repositori ke public atau cloud repositori yang ada di github, untuk dapat melakukan itu kita harus mempunyai akun github terlebih dahulu dan membuat repositori baru
  - Setelah berhasil membuat repositori, kita harus menambahkan remote terlebih dahulu agar repositori lokal kita dapat terhubung ke github, kita dapat menggunakan perintah `git remote add origin <link repo>`
  - Setelah berhasil menambahkan remote, kita dapat melakukan push ke repositori github dengan menggunakan perintah `git push -u origin <nama branch>`
- - Jika kita liat di repositori github maka akan terlihat kalau perubahan-perubahan yang kita lakukan sebelumnya di lokal berhasil berpindah!["Working Area Git"!](/img/git-push.png)
+ - Jika kita liat di repositori github maka akan terlihat kalau perubahan-perubahan yang kita lakukan sebelumnya di lokal berhasil berpindah! <img src="img/git-pull.png" alt="git pull" />
 
  Yang tadi itu adalah alur jika kita ingin membuat projek dari lokal dan ingin mengupload perubahan dari lokal ke public repositori, tapi bagaimana jika kita ingin mengambil projek dari github sehingga bisa kita jadikan sebagai lokal projek kita? 
  - Kita bisa mengkloning projek atau repositori dari github, caranya cukup dengan menyalin link dari repo yang kita inginkan lalu gunakan perintah `git clone <link repo>` pada terminal bash
@@ -99,7 +99,8 @@ Hypertext Markup Languange atau singkatnya disebut HTMl adalah bahasa markup yan
 ```
 
 ## **Anatomi pada HTML**
-!["Anatomi HTML"!](img/anatomiHtml.jpg)
+<img src="img/anatomiHtml.jpg" alt="anatomi html" width="380" />
+
 - HTML Element terdiri atas opening tag, content, dan closing tag
 Opening Tag : <p>
 Content : Hello World
@@ -160,7 +161,8 @@ yaitu menggunakan elemen HTML sesuai dengan kebutuhan konten. **Contoh :** heade
 Cascanding Style Sheet atau yang biasa disingkat dengan CSS adalah bahasa yang digunakan untuk memberikan styling seperti mengubah warna, menggunakan font custom, editing text format, mengatur tata letak pada tiap element tag HTML sehingga membuat tampilan web kita menjadi terlihat menarik.
 
 ## **Anatomi CSS**
-!["Anatomi HTML"!](img/cssSelector.jpg)
+<img src="img/cssSelector.jpg" alt="anatomi html" />
+
 - . (titik) : merupakan selektor yg menuju pada tag html yg memiliki properti kelas
 - CSS comment dapat diberika di external css dan internal css /* */
 - Ada 3 cara menggunakan CSS yaitu : <br>
@@ -247,8 +249,11 @@ membersihkan rumah
 1. membuka email
 2. menginputkan pesan dan alamat email tujuan
 ### **Flowchart**
+<img src="img/flowChart.png" />
+
 ### **PseudoCode**
 ```
+DESCRIBE
 let email;
 BEGIN
 let message = INPUT(pesan, alamatEmail) {
@@ -263,18 +268,168 @@ let message = INPUT(pesan, alamatEmail) {
 END
 ```
 
-- Panduan menulis pseudocode :
-  - Huruf kapital digunakan untuk menulis perintah
-  - 1 statement hanya terdiri dari 1 baris
-  - Menggunakan indentasi
-  - Harus bersifat spesifik dan simple
-
-
 - Jenis Pseudocode :
   - Procedural : cara berpikir runut 
   - Conditional: jika dibutuhkan suatu percabangan masalah (if else)
   - Looping    : sebuah perintah yg diulang-ulang
-  - Recursive  : sebuah perintah yang memanggil method/function didalam sebuah function
+
+# **Day 5 : JavaScript Dasar**
+## **Pengertian JavaScript**
+JavaScript adalah bahasa pemogramanan satu-satunya yang dapat digunakan untuk memanipulasi struktur dari web browser, javascriptjuga merupakan bahasa pemograman yang bersifat interpreter dan dinamis sehingga cukup mudah untuk digunakan ketimbang bahasa pemograman lain yang bersifat strict dan harus di compile terlebih dulu untuk menjalankan code.
+
+## **Cara menjalankan JavaScript**
+- Kita bisa menggunakan javascript melalui file html dengan memberikag tag ``<script>code...</script>`` lalu menuliskan syntaks-syntaks javascript di dalam tag tersebut.
+- Cara kedua adalah dengan membuat file khusus dengan memberi file dengan ekstension .js lalu menghubungkannya di file html dengan memberi atribut src dan alamat file di dalam tag `<script>`. 
+
+**Contoh:**
+```
+<script src="script.js"><script>
+```
+
+  ## **Tipe Data dalam JavaCript**
+  - number : 12345
+  - string : "hello world"
+  - boolean : true or false
+  - null : tidak punya nilai
+  - undefined : belum didefinisikan 
+  - object : kumpulan data yang disimpan dengan key berupa string
+  - array : kumpulan data dengan key berupa index atau angka
+
+  ## **Variabel**
+  Variabel bisa disebut sebagai tempat penampung data, karena JavaScript bersifat dinamis kita bisa menyimpan data dalam bentuk apapun tanpa menentukan tipe datanya terlebih dahulu.
+  ### ada 3 macam cara mendeklarasikan variabel di JavaScipt
+  - var
+  - let 
+  - const
+
+  ## **Operator pada JavaScript**
+ ### **Arithmetic Operator**
+Arithmetic operator adalah operator yang melibatkan operasi matematika.
+- Tambah (+)
+- Kuramg (-)
+- Perkalian (*)
+- Pembagian (/)
+- Modulus (%)
+### **Comparison operator**
+Comparison operator adalah operator yang membandingkan satu nilai dengan 
+nilai lainnya. Value yang didapat setelah melakukan comparison operator adalah tipe boolean true or false
+- Lebih kecil dari : <
+- Lebih besar dari: >
+- Lebih kecil atau sama dengan: <=
+- Lebih besar atau sama dengan: >=
+- Sama dengan: ===
+- Tidak sama dengan: !==
+### **Logical Operator**
+Logical operator biasa digunakan untuk sebuah CONDITIONAL pada pemograman dan dapat menghasilkan nilai BOOLEAN yaitu TRUE or FALSE.
+
+
+Simbol dari Logical Operator adalah sebagai berikut:
+- AND operator : &&
+- OR operator: ||
+- NOT operator: !
+
+## **Control Flow**
+### **Conditional Statement**
+Conditional merupakan 
+statement percabangan yang 
+menggambarkan suatu kondisi.
+Conditional statement akan 
+mengecek kondisi spesifik dan 
+menjalankan perintah
+berdasarkan kondisi tersebut
+Yang dicek adalah apakah 
+kondisi tersebut TRUE (benar).
+Jika TRUE maka code didalam 
+kondisi tersebut dijalankan.
+
+**Contoh Conditional statement menggunakan IF ELSE :**
+```
+let spotlight = 'yellow';
+if (spotlight === 'red') {
+  console.log('Stop!');
+} else if (spotlight === 'yellow') {
+  console.log('Slow down.');
+} else if (spotlight === 'green) {
+  console.log('Go!);
+} else {
+  console.log('Caution, unknown!');
+}
+```
+**Contoh Conditional statement SWITCH CASE :**
+- Gunakan switch case jika 
+kondisi dan percabangan 
+terlalu banyak
+
+```
+switch(expression) {
+  case value_1 :
+      statement_1;
+      break;
+  case value_2 :
+      statement_2;
+      break;
+  case value_3 :
+      statement_3;
+      break;
+  default :
+     default_statement;
+}
+```
+### **Looping**
+Looping adalah statement 
+yang mengulang sebuah 
+instruksi hingga kondisi 
+terpenuhi atau jika kondisi 
+stop/berhenti tercapai.
+
+**Contoh Looping menggunakan FOR LOOP:**
+- Gunakan FOR LOOP jika kita 
+tahu seberapa banyak nilai 
+pasti untuk pengulangannya.
+
+```
+let angka = 1;
+for (angka; angka <= 10; angka++) {
+    console.log(angka);
+}
+```
+**Contoh Looping menggunakan WHILE LOOP:**
+- Gunakan WHILE LOOP jika kita 
+tidak mengetahui jumlah pasti 
+pengulangan.
+
+```
+let angka = 1;
+let i = 0;
+let success = FALSE;
+while(!success){
+  if(i == 5){
+    console.log('mencetak angka 5');
+    return success = TRUE;
+  } else {
+    return success = FALSE;
+  }
+  i++;
+}
+```
+**Contoh Looping menggunakan DO WHILE LOOP:**
+- Gunakan do while jika ingin menjalankan 
+pengulangan 1 kali sebelum 
+dilakukan pengecekan kondisi.
+
+```
+let bensin = 9;
+do {
+  console.log("Nyalakan mesin!");
+  bensin--;
+} while(bensin > 0)
+```
+
+
+
+
+
+
 
 
 
