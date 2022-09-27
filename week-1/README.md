@@ -35,7 +35,7 @@
 #### Directory Manipulation
 - `mkdir <name directory>`   : membuat directory baru
 - `cp <name directory> <location>`      : menduplikat file atau directory
-- `mv <name directory> <location>`      : memindahkan directory, selain itu bisa digunakan
+- `mv <name directory> <location>`      : memindahkan directory, selain itu bisa digunakan untuk rename
 - `rm <-d> <name directory>`      : menghapus directory secara permanen
 
 #### Text
