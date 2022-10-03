@@ -334,14 +334,40 @@ Setelah kita berhasil menyeleksi element pada document html dengan DOM Selector,
 
 # **Day 5 DOM Event**
 ### **DOM Event pada JavaScript**
-Kita mungkin sudah berhasil melakukan merubah struktur-struktur dari element html kita menggunakan DOM Manipulation, tapi kita pasti berpikir untuk apa melakukan hal tersebut? Event adalah jawabannya, dengan menggunakan event listener kita bisa memberikan trigger atau interaksi pada event tertentu sehingga kita bisa menentukan kapan perubahan yang kita buat pada DOM Manipulation dapat di eksekusi. Hal seperti itulah yang dapat membuat website kita menjadi terlihat lebih menarik dan interaktif.
+Kita mungkin sudah berhasil melakukan merubah struktur-struktur dari element html kita menggunakan DOM Manipulation, tapi kita pasti berpikir untuk apa melakukan hal tersebut? Event adalah jawabannya, dengan menggunakan event listener kita bisa menangkap interaksi si user pada event tertentu sehingga kita bisa menentukan kapan perubahan yang kita buat pada DOM Manipulation dapat di eksekusi. Hal seperti itulah yang dapat membuat website kita menjadi terlihat lebih menarik dan interaktif.
 
-### **Ada 3 Cara menggunakan Event pada JavaScript**
+### **Ada beberapa cara untuk menangkap interaksi user**
+#### **Menggunakan `addEventListener("Event")`**
+```
+// Cari dulu kedua element berdasarkan id-nya
+const input = document.getElementById("user-input");
+const button- = document.getElementById("alert-button");
 
-#### **Menggunakan Attribute Event pada Element HTML**
+// Baru tambahkan event listener untuk menangkap interaksi berdasarkan tombol button diatas
+button.addEventListener("click", function() {
+    alert(input.value);
+})
+```
+### **Menggunakan `element.onEvent`**
+```
+// Cari dulu kedua element berdasarkan id-nya
+const input = document.getElementById("user-input");
+const button- = document.getElementById("alert-button");
 
-### **Menggunakan properti event dan memasukannya ke function**
-#### **Menggunakan Function AddEventListener()**
+button.onClick = function() { alert(input.value) }
+```
+#### **Menggunakan attribute `onEvent` langsung pada inline element HTML**
+```
+// Pertama tangkap element input untuk dapat mengakses valuenya
+const input = document.getElementById("user-input");
 
+// Buat function untuk melakukan proses
+function inputAlert() {
+    alert(input.value);
+}
+
+// Gunakan event listener langsung melalui attribute pada inline element HTML
+<button id="alert-button" onClick="inputAlert();"></button>
+```
 
 
