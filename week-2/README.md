@@ -330,11 +330,32 @@ Setelah kita berhasil menyeleksi element pada document html dengan DOM Selector,
 //Expected Result
   <div id="header">Ini Heading</div>
 ```
+
+#### **Attribute Manipulation**
+- `setAttribute()` : menambahkan attribute baru ke dalam suatu target element.
+- `hasAttribute()` : memeriksa attribute dari suatu target element.
+- `removeAttribute()` : menghapus attribute dari target element.
+- `getAttribute()` : mengambil value dari attribute target element.
+#### **Class Manipulation**
+-  `classList.add()` : menambahkan class baru ke target element.
+-  `classList.remove()` : menghapus class dari target element.
+-  `classList.toggle()` : menambahkan class baru ke target element (Jika class yang dimaksud belum ada) dan menghapus class yang ada di target element (Jika class yang dimaksud sudah ada).
+-  `classList.contains()` : memeriksa apakah class yang dicari ada di target element.
 <br>
 
 # **Day 5 DOM Event**
 ### **DOM Event pada JavaScript**
 Kita mungkin sudah berhasil melakukan merubah struktur-struktur dari element html kita menggunakan DOM Manipulation, tapi kita pasti berpikir untuk apa melakukan hal tersebut? Event adalah jawabannya, dengan menggunakan event listener kita bisa menangkap interaksi si user pada event tertentu sehingga kita bisa menentukan kapan perubahan yang kita buat pada DOM Manipulation dapat di eksekusi. Hal seperti itulah yang dapat membuat website kita menjadi terlihat lebih menarik dan interaktif.
+
+### **Jenis Event yang paling umum dan sering digunakan**
+- `Click` : Event akan terjadi saat target event di klik.
+- `Submit` : Event akan terjadi ketika suatu formulir di submit.
+- `Load` : Event akan terjadi ketika halaman di load.
+- `Scroll` : Event akan terjadi ketika kita melakukan scroll pada web browser
+- `Change` : Event akan terjadi jika ada perubahan terhadap target element.
+- `Focus` : Event akan terjadi jika kita memfokuskan input element.
+- `Blur` : Kebalikan dari focus, event akan dijalankan ketika kita melepas fokus dari suatu input element.
+- `Hover` : Event akan terjadi ketika kita mengarahkan cursor ke target element.
 
 ### **Ada beberapa cara untuk menangkap interaksi user**
 #### **Menggunakan `addEventListener("Event")`**
@@ -348,6 +369,7 @@ button.addEventListener("click", function() {
     alert(input.value);
 })
 ```
+>Pada contoh diatas sebelum kita melakukan event listener, kita harus menangkap element terlebih dahulu menggunakan DOM Selector, setelah element di asign ke dalam variabel kita baru dapat membuat event listener dengan memberi method addEventListener dan mengisi 2 argument dengan nama event dan callback untuk menjalankan eksekusi DOM Manipulation.
 ### **Menggunakan `element.onEvent`**
 ```
 // Cari dulu kedua element berdasarkan id-nya
@@ -356,6 +378,7 @@ const button- = document.getElementById("alert-button");
 
 button.onClick = function() { alert(input.value) }
 ```
+>Untuk menggunakan cara ini kita cukup menggunakan properti event setelah element dan mengisinya dengan anonymous function.
 #### **Menggunakan attribute `onEvent` langsung pada inline element HTML**
 ```
 // Pertama tangkap element input untuk dapat mengakses valuenya
@@ -369,5 +392,5 @@ function inputAlert() {
 // Gunakan event listener langsung melalui attribute pada inline element HTML
 <button id="alert-button" onClick="inputAlert();"></button>
 ```
-
+>Selain 2 cara diatas, kita juga bisa melakukan event listener langsung dengan menyisipkannya sebagai attribute di dalam inline element html.
 
