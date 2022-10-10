@@ -72,20 +72,53 @@ Array memiliki method bawaan atau built-in method, yang artinya JavaScript sudah
 - `unshift()` : adalah method untuk menambahkan item array pada index pertama.
 - `sort()` : adalah method untuk mengurutkan array secara ascending atau descending alphanumerik.
 ### **Looping menggunakan built-in method pada array**
-- `forEach()` : adalah method untuk melakukan looping pada setiap elemen array.
+`forEach()` : adalah method untuk melakukan looping pada setiap elemen array.
 ### **Contoh :**
 ```
+    let arrayOfNumber = [1, 2, 3, 4, 5];
+    let urutan = arrayOfNumber.forEach((number) => {
+        console.log(number);
 
+        //Output
+        //1
+        //2
+        //3
+        //4
+        //5
+    })
 ```
-- `map()` : adalah method perulangan yang dapat mengembalikan array baru.
+>Dengan menggunakan foreEach() kita bisa melakukan looping pada tiap isi dari arrayOfNumber tanpa merubah isi dari array tersebut.
+
+`map()` : adalah method perulangan yang dapat mengembalikan array baru.
 ### **Contoh :**
 ```
+    let arrayOfNumber = [1, 2, 3, 4, 5];
+    let urutan = arrayOfNumber.map((number) => {
+        return `Urutan ke ${number}`;
+    })
 
+    console.log(urutan);
+
+    //Output
+    //Urutan ke 1
+    //Urutan ke 2
+    //Urutan ke 3
+    //Urutan ke 4
+    //Urutan ke 5
 ```
-
+>Method map juga mempunyai kemampuan untuk melakukan looping seperti method forEach, tapi sebenarnya mapping disini mempunyai kemampuan khusus yang dapat merubah isi dari array per-index dengan operasi tertentu dan mengembalikan array yang baru dengan menggunakan keyword return.
 ### **Kapan harus menggunakan forEach dan kapan harus menggunakan map ?**
-
+Setelah melihat contoh yang ada diatas maka dapat kita simpulkan, jika kita membutuhkan looping yang dapat melakukan perubahan pada array dan dapat menggunakan return kita bisa menggunakan map(), dan jika kita ingin melakukan looping tanpa membuat perubahan dan tanpa mengembalikan apapun kita bisa menggunakan forEach().
 ## **Array Multidimensional**
+Multidimensional Array bisa dianalogikan dengan array of array. Yang artinya adalah array yang ada didalam array.
+### **Contoh Array Multidimensi**
+```
+let arrayOfNumber = [1, 2, 3, [4, 5, 6]];
+
+//Mengakses array dengan value 5 yang ada dalam index ke 3
+console.log(arrayOfNumber[3][1]); // Output 5
+```
+>Kita bisa memasukan array ke dalam index dari array lainnya. Itulah yang disebut dengan array multidimensi
 
 <br/>
 
