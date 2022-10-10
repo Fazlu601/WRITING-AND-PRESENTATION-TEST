@@ -73,12 +73,12 @@ Array memiliki method bawaan atau built-in method, yang artinya JavaScript sudah
 - `sort()` : adalah method untuk mengurutkan array secara ascending atau descending alphanumerik.
 ### **Looping menggunakan built-in method pada array**
 - `forEach()` : adalah method untuk melakukan looping pada setiap elemen array.
-**Contoh :**
+### **Contoh :**
 ```
 
 ```
 - `map()` : adalah method perulangan yang dapat mengembalikan array baru.
-**Contoh :**
+### **Contoh :**
 ```
 
 ```
@@ -188,19 +188,232 @@ console.log(mahasiswa); // Output current address, lulus is delete from mahasisw
 >Gunakan keyword delete lalu dilanjutkan dengan nama object lalu key dari properti / method yang ingin dihapus.
 
 ## **Method**
-Jika value yang kita masukkan pada property berupa function. Maka itu disebut sebagai method.
+Jika value yang kita masukkan pada property berupa functionn maka itu disebut sebagai method. Jika kita ingin melakukan console.log() itu berarti kita sama saja memanggil function .log(), yaitu adalah method milik console yang merupakan object global pada JavaScript. Selain memanfaatkan method yang sudah ada, kita juga bisa membuat method customize kita sendiri.
+
+### **Contoh :**
+```
+const greeting = {
+    welcome : () => 'Halo selamat datang',
+    afterTransaction : function(){
+       return 'Terima kasih sudah membeli produk kami'
+    } ,
+};
+
+console.log(greeting.welcome()); // 'Halo selamat datang'
+```
+>Kita bisa memasukan baik anonymous function ataupun arrow function ke dalam key dari object.
+
+## **Nested Object**
+Nested object adalah object yang ada di dalam object lainnya, mirip seperti array multidimensi yang merupakan array yang ada di dalam index array.
+### **Contoh :**
+```
+const news = {
+    title : 'Impact Byte menjadi Unicorn',
+    description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    author : {
+        people : {
+            name : 'David Winalda',
+            age : 25,
+            city : 'bandung',
+        }
+    }
+};
+
+console.log(`News : ${news.title}`); // Output Impact Byte menjadi Unicorn
+console.log(`Article published by, ${news.author.people.name}`); // Output David Winalda
+```
+>Pada contoh diatas kita berhasil mengambil object people dengan properti name yang merupakan turunan dari object author dan news.
+
+## **Passed by reference**
+Kita bisa mengubah data yang ada pada object melalui sebuah function dan memasukkan object sebagai parameter
+function. Ini biasa disebut passed by reference.
+### **Contoh penggunaan :**
+```
+let someone = {
+    nama : 'Aju',
+    status : 'Mahasiswa'
+};
+
+let changeData = obj => {
+    obj.nama = 'Fazlu';
+    obj.status = 'Pekerja;
+}
+
+changeData(someone);
+console.log(someone.nama); // Fazlu
+console.log(someone.status);// Pekerja
+```
+>Dengan menggunakan function changeData diatas kita bisa merubah isi dari object someone.
+
+## **Looping Object**
+Tidak hanya array kita juga bisa menampilkan keseluruhan object properties dengan menggunakan looping, dengan begitu kita tidak perlu mengaksesnya tiap properti dengan manual.
+### **Contoh Looping Object menggunakan for in :**
+```
+const news = {
+    title : 'Impact Byte menjadi Unicorn',
+    description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    author : {
+        people : {
+            name : 'David Winalda',
+            age : 25,
+            city : 'bandung',
+        }
+    }
+};
+
+//Looping isi tiap key value dari object news.
+for(let key in news) {
+    console.log(news[key]);
+}
+
+//Looping isi dari object people yang merupakan nested dari object author dan news.
+for(let key in news.author.people) {
+    console.log(news.author.people[key]);
+}
+```
+>Dengan menggunakan for in kita bisa melooping tiap properti yang ada di dalam object yang kita arahkan.
 
 <br/>
 
 # **Day 3 Rekursif Function**
+## **Apa itu Rekursif ?**
+Rekursif adalah merupakan paradigma yang biasa digunakan untuk case matematika, fisika, kimia, dan yang berhubungan dengan calculation. Penggunaan rekursif bisa dilihat pada function yang didalam blocksnya memanggil dirinya sendiri untuk di proses.
+### **Contoh kasus dan penggunaan rekursif :**
+```
+function refactorial(n) {
+    if(n == 1){
+        return 1;
+    }else {
+        return n * refactorial(n-1);
+    }
+}
 
-## **Pengertian Rekursif**
+console.log(refactorial(5)); // Output 120
+```
+>Dengan menggunakan rekursif yang dapat memanggil dirinya sendiri, kita bisa melakukan operasi refactorial menjadi lebih sederhana dan mudah dibaca.
+
+### **Ciri dari rekursif**
+- Fungsi rekursif selalu memiliki kondisi yang menyatakan kapan fungsi tersebut berhenti. Kondisi ini harus dapat dibuktikan akan tercapai, karena jika tidak tercapai maka kita tidak dapat membuktikan bahwa fungsi akan berhenti, yang berarti algoritma kita tidak benar.
+
+- Fungsi rekursif selalu memanggil dirinya sendiri sambil mengurangi atau memecahkan data masukan setiap panggilannya. Hal ini penting diingat, karena tujuan utama dari rekursif ialah memecahkan masalah dengan mengurangi masalah tersebut menjadi masalah-masalah kecil.
 
 <br/>
 
 # **Day 4 Asyncronus JavaScript & Promise**
+## **Apa itu proses Asyncronus pada JavaScript?**
+
 ## **Pengertian Asyncronus pada JavaScript**
+Asyncronus adalah proses yang dilakukan secara non-blocking yang artinya kita bisa melakukan proses tersebut sembari menjalankan proses lainnya, sehingga tidak akan menghambat antrian proses berikutnya. Biasanya kita akan menggunakan proses asyncronus jika kita ingin melakukan proses yang eksekusinya membutuhkan waktu yg terbilang cukup lama, contohnya jika kita ingin mengambil data dari API.
+### **Berikut adalah handler yang dapat kita gunakan untuk menangani proses asyncronus :**
+- Callback : memasukan sebuah function ke dalam argument dari function untuk menangkap proses dari asyncronus.
+- Promise : meggunakan object yang merupakan representasi dari request pengolaan data secara asyncronus.
+- Async await : fitur baru JavaScript sejak ES2017 yang dapat memudahkan kita dalam menangani proses asyncronus.
+
+### **Contoh jika menggunakan callback**
+```
+
+```
+### **Contoh jika menggunakan promise**
+```
+
+```
 <br/>
 
-# **Day 5 Local Storage**
-## **Pengertian Local Storage**
+# **Day 5 Web Storage**
+## **Local Storage**
+LocalStorage adalah web storage API yang merupakan tempat penyimpanan data di browser. Penyimpanan ini memungkinkan aplikasi web atau aplikasi javascript menyimpan data secara lokal tanpa terhubung ke internet. Localstorage dapat menyimpan data secara permanent, jadi sangat berbeda dengan session yang datanya akan hilang saat jendela browser ditutup.
+### **Beberapa method yang bisa kita gunakan pada Local Strorage :**
+- `localStorage.setItem(key, value)` : memasukan data ke local storage dengan mengirimkan key dan value ke argument setItem().
+- `localStorage.getItem(key)` : mengakses value dari local storage dengan key tertentu.
+- `localStorage.removeItem(key)` : menghapus data pada local storage dengan key tertentu.
+- `localStorage.clear()` : digunakan untuk menghapus semua data.
+- `localStorage.key()` : digunakan untuk mengambil nomor dari setiap key.
+>Tidak terdapat metode untuk update data. Cara update data yang bisa kita lakukan adalah dengan mengganti value dari key yang dituju dengan menggunakan perintah setItem()
+
+### **1.Menyimpan dan Menampilkan Data**
+```
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Local Storage</title>
+    </head>
+    <body>
+        <button onclick="add()">Tambah</button>
+        <br><br>
+    
+        <div id="data"></div>
+    
+        <script>
+    
+            function add(){
+    
+                //save data to localstorage
+                localStorage.setItem('name', 'Fazlu')
+    
+                //get data 
+                var data = localStorage.getItem('name')
+                
+                //show data
+                document.getElementById('data').innerHTML = data
+            }
+        </script>
+    </body>
+    </html>
+
+```
+
+### **2. Menyimpan dan Menampilkan Data Array**
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <button onclick="add()">Tambah</button>
+    <br><br>
+
+    <ul id="data"></ul>
+
+    <script>
+
+        function add(){
+
+            var id = 0
+            var list = []
+
+            var data = {
+                name    : 'Fazlu, 
+                age     : 20, 
+                address : 'Jambi'
+            }
+
+            //save data to localstorage
+            localStorage.setItem('personalData', JSON.stringify(data))
+
+            //get data and convert from string to array
+            var list = JSON.parse(localStorage.getItem('personalData'))
+
+            //show Data
+            document.getElementById('data').innerHTML = `<li> ${list.name} | ${list.age} | ${list.address}</li>`
+        }
+    </script>
+</body>
+</html>
+
+```
+
+### **3. Menghapus Data**
+```
+//remove data based on key
+localStorage.removeItem('data');
+
+//remove all data
+localStorage.clear()
+```
