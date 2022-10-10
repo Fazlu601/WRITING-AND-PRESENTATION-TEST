@@ -338,18 +338,109 @@ console.log(refactorial(5)); // Output 120
 ## **Pengertian Asyncronus pada JavaScript**
 Asyncronus adalah proses yang dilakukan secara non-blocking yang artinya kita bisa melakukan proses tersebut sembari menjalankan proses lainnya, sehingga tidak akan menghambat antrian proses berikutnya. Biasanya kita akan menggunakan proses asyncronus jika kita ingin melakukan proses yang eksekusinya membutuhkan waktu yg terbilang cukup lama, contohnya jika kita ingin mengambil data dari API.
 ### **Berikut adalah handler yang dapat kita gunakan untuk menangani proses asyncronus :**
-- Callback : memasukan sebuah function ke dalam argument dari function untuk menangkap proses dari asyncronus.
-- Promise : meggunakan object yang merupakan representasi dari request pengolaan data secara asyncronus.
-- Async await : fitur baru JavaScript sejak ES2017 yang dapat memudahkan kita dalam menangani proses asyncronus.
+- **Callback** : konsep callback dapat dianalogikan seperti kita memanggil penjual untuk membeli sesuatu dan sembari menunggu penjual mempersiapkan barangnya, kita pergi melakukan hal lain. Lalu, ketika barangnya sudah siap, penjual akan memanggil balik (callback) untuk memberitahu kita bahwa barang sudah siap dan kita dapat menentukan tindakan selanjutnya dari pembelian barang tadi.
+Callback sendiri adalah sebuah regular function (yang biasanya anonymous) dan ditaruh di argumen paling belakang dari sebuah asynchronous function. Layaknya function biasa, callback juga dapat menerima parameter dan mengembalikan value. 
+
+
+- **Promise** : Promise hadir secara native di Javascript semenjak ES6. Promise, seperti namanya merupakan janji atau kontrak. Analoginya sama seperti pembelian barang tadi, bedanya adalah pembeli sudah menyiapkan kontrak yang berlaku apabila barang sudah siap. Kontrak tersebut berisi ketentuan yang yang mengatur apa yang harus dilakukan apabila kondisi terpenuhi (resolved) atau tertolak (rejected).
+
+
+
+- **Async await** : fitur baru JavaScript sejak ES2017 yang dapat memudahkan kita dalam menangani proses asyncronus.
 
 ### **Contoh jika menggunakan callback**
 ```
+function asyncDivision(dividend, divisor, cb) {
+  setTimeout(() => {
+    let err;
+
+    if (isNaN(dividend) && isNaN(divisor)) {
+      err = 'One of dividend or divisor is not a number';
+      cb(err, null);
+    }
+
+    if (divisor === 0) {
+      err = 'Divide by zero';
+      cb(err, null);
+    }
+
+    const quotient = Number(dividend) / Number(divisor);
+    cb(null, quotient);
+  }, 2000);
+}
+
+asyncDivision(14, 2, (err, result) => {
+  if (err) {
+    throw new Error(err);
+  }
+
+  console.log(err, result);
+});
+
+console.log('This should run before the asyncDivision returns its result.')
 
 ```
+>kita bisa melihat proses asynchronous yang terjadi dimana console.log() yang ada di baris paling bawah dieksekusi tanpa menunggu asyncDivision selesai.
+>Penggunaan callback ini memiliki kelemahan yaitu return value dari callback hanya dapat dipanggil di dalam callback function tersebut, hal ini lah yang membuat para developer untuk menulis kode dengan struktur nested sehingga menyebabkan hal yang disebut dengan callback hell.
 ### **Contoh jika menggunakan promise**
 ```
+const isNumber = (a, b) => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (isNaN(a) || isNaN(b)) {
+      err = 'One of input is not a number';
+      reject(err);
+    } else {
+      resolve(true);
+    }
+  }, 500)
+});
 
+const divide = (a, b) => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (b === 0) {
+      err = 'Divide by zero';
+      return reject(err);
+    }
+
+    const result = Number(a) / Number(b);
+    resolve(result);
+  }, 1500)
+});
+
+const multiply = (a, b) => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const result = Number(a) * Number(b);
+    resolve(result);
+  }, 1000)
+});
+
+const add = (a, b) => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const result = Number(a) + Number(b);
+    resolve(result);
+  }, 500);
+});
+
+// promise start here...
+isNumber(6, 3)
+  .then(() => {
+    const a = 4;
+    return divide(6, 3);
+  })
+  .then(result => {
+    // uncomment next line will yield an error because const a is beyond this scope
+    // console.log(a);
+
+    return multiply(result, 7);
+  })
+  .then(result => add(result, 1))
+  .then((result) => {
+    console.log(`The final result is ${result}`);
+  })
+  .catch((err) => console.log(err));
 ```
+>Implementasi promise berbentuk seperti chain atau rantai, yang lebih mudah untuk dibaca daripada struktur nested yang dimiliki oleh callback.
+
 <br/>
 
 # **Day 5 Web Storage**
@@ -397,6 +488,7 @@ LocalStorage adalah web storage API yang merupakan tempat penyimpanan data di br
     </html>
 
 ```
+>Menambahkan data berdasarkan event onclick() dan memasukannya ke local storage, hingga bisa diakses dan ditampilkan pada document html.
 
 ### **2. Menyimpan dan Menampilkan Data Array**
 ```
@@ -441,7 +533,7 @@ LocalStorage adalah web storage API yang merupakan tempat penyimpanan data di br
 </html>
 
 ```
-
+>Menyimpan object ke local storage dengan mengkonversi ke string, lalu ditampilkan dalam bentuk array of object.
 ### **3. Menghapus Data**
 ```
 //remove data based on key
@@ -450,3 +542,4 @@ localStorage.removeItem('data');
 //remove all data
 localStorage.clear()
 ```
+>Menghapus data dari local storage.
