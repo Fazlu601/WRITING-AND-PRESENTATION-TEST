@@ -28,7 +28,7 @@ const getData = async () => {
 
 getData();
 ```
->tesssss
+>Pertama dari contoh yang ada diatas, kita membuat function seperti biasa, yang membedakan disini adalah kita menambahkan keyword async didepannya yang berarti itu membuat function tersebut dianggap sebagai asyncronus function, dan dengan begitu kita bisa memanggil keyword await di dalamnya sebagai pengganti .then().
 
 ### **Contoh implementasi dari async await :**
 ```
@@ -51,24 +51,55 @@ const renderData = (data) => {
         document.body.insertAdjacentHTML("afterbegin", card);
     } );
 }
-```
-# **Day 2 Git & Github Lanjutan**
 
+//Output : Menampilkan data digimon dari hasil looping array of object yang didapat dari API.
+```
+<br>
+
+# **Day 2 Git & Github Lanjutan**
+Perlu diingat kalau programmer yang ada di seluruh penjuru dunia memanfaatkan git & github bukan hanya sebagai alat bantu penyimpanan source code, melainkan juga sebagai alat bantu yang memungkinkan kita untuk berkolaborasi dengan tim.
+### **Bagaimana cara kita berkolaborasi ?**
+- **Branch :** Dengan memanfaatkan fitur git yaitu branch, kita dapat membagi pekerjaan berdasarkan fitur yang kita ingin buat dengan anggota-anggota lainnya.
+
+- **Pull Request :** Setelah kita berhasil membuat branch dan merasa yakin jika hasil yang kita buat sudah sesuai, pasti biasanya kita akan melakukan git push untuk mengirimkan perubahan terhadap branch kita ke remote repository, lalu saat perubahan sudah sampai ke github kita bisa memanfaatkan pull request untuk dapat mengirimkan request agar code yang kita buat dapat di review lebih lanjut oleh team leader.
+- **Merge :**
+Jika tidak terjadi conflict dan pull request kita sudah diterima oleh team leader, kita bisa melakukan merge untuk menggabungkan perubahan yang ada pada branch yang kita buat sebelumnya ke dalam branch dev sebagai branch utama yang biasa digunakan oleh grup project dalam tahap development.
+
+### **Contoh command :**
+- `git branch <nama branch>` : Membuat branch baru.
+- `git branch switch <nama branch>` : Berganti branch.
+- `git branch -D <nama branch>` : menghapus branch.
+- `git merge <nama branch>` : menggabungkan antar branch.
+
+### **Kapan Conflict bisa terjadi ?**
+<img src="https://user-images.githubusercontent.com/3016805/42661300-6855faac-85f3-11e8-948c-249ac49c45c8.png" width="500" />
+
+>Conflict biasa terjadi jika ada 2 branch yang ingin melakukan merge dan memiliki code yang berbeda di baris yang sama, sehingga jika hal tersebut terjadi kita tidak dapat melakukan merge dan harus memperbaikinya terlebih dahulu dengan cara memilih baris code mana yang ingin digunakan.
+
+<br>
 
 # **Day 3 Responsive Web Design & Bootstrap**
-### **Responsive Web Design**
-- **Responsive Web Desin** yaitu suatu tampilan website yang dapat menyesuikan dengan perangkat yang digunakan
-- Chrome Dev Tools merupakan tools pada google chrome yang digunakan sebagai tools Responsive Web Design
-- Untuk mengakses Chrome Dev Tools yaitu 
+## **Responsive Web Design**
+### **Apa itu Responsive Web Design ?**
+Yaitu adalah tampilan antarmuka web yang dapat menyesuaikan viewport dari masing-masing ukuran device yang berbeda, dan tentunya dengan tampilan yang tetap bagus dan menarik.
+
+### **Bagaimana cara kita melihat website yang kita buat sudah responsive atau belum ?**
+Kita bisa menggunakan Chrome Dev Tools pada google chrome yang digunakan sebagai tools Responsive Web Design.
+
+### **Cara mengakses Chrome Dev Tools :**
+
   > ctrl + shift + j
   > ctrl + shift + m digunakan untuk melihat toggle bar 
+
 - Dalam menggunakan Responsive Web Design pada bagian HTML perlu ditambahkan **viewport** pada bagian head agar tampilan website dapat menyesuaikan dengan berbagai device
 - Untuk membuat suatu gambar pada halaman website agar menjadi responsive dapat dilakukan dengan menambahkan atribut Max - width = 100% pada bagian gambar
 - **Media Query** salah satu cara untuk mengatur suatu website agar bisa terdiri dari beberapa jenis 
 - Penggunaan media query yang umum digunakan adalah min-width dan max-width
-- Contoh penerapan media query 
-  `` @media screen and (max-width: 500px)``
-- Cara mengkondisikan Media Query ada 2 cara yaitu:
+### **Contoh penerapan media query :**
+```
+ @media screen and (max-width: 500px)
+ ```
+### **Cara mengkondisikan Media Query ada 2 cara yaitu:**
   - Memisahkan beberapa file css sesuai dengan tampilan device yang ingin dibuat 
   - Menggabungkan semua styling css device menjadi 1 
 - Breakpoint yaitu istilah saat terjadi perubahan ukuran pada suatu website ketika berganti device
@@ -82,8 +113,10 @@ const renderData = (data) => {
     }
    }
   ```
-- Flexbox bertujuan untuk membuat website yang lebih efisien dalam mengatur, menata dan item pada dalam sebuah wadah bahkan ketika ukurannya tidak diketahui dan/atau dinamis (dengan menggunakan kata "flex").
-- Flexbox properties :
+
+### **Flexbox**
+Flexbox bertujuan untuk membuat website yang lebih efisien dalam mengatur, menata dan item pada dalam sebuah wadah bahkan ketika ukurannya tidak diketahui dan/atau dinamis (dengan menggunakan kata "flex").
+### **Flexbox properties :**
   - Flex direction : menetapkan sumbu utama item, sehingga menentukan arah item fleksibel ditempatkan di wadah fleksibel. 
     - Row : Kiri ke kanan
     - Row-Reverse : Kanan ke kiri
@@ -95,20 +128,20 @@ const renderData = (data) => {
     - wrap-reverse :item flex akan membungkus beberapa baris dari bawah ke atas.
   - Flex flow : cara singkat untuk properti flex-direction dan flex-wrap, yang bersama-sama menentukan sumbu utama dan sumbu silang container flex. Nilai default adalah baris nowrap.
   - Align items
-  - Contoh :
-  - ![align](https://user-images.githubusercontent.com/64596495/184914490-9233304c-402e-4a70-978d-c34cbd43b44e.JPG)
+
+ ### **Grid System** 
 - Grid merupakan sistem tata letak berbasis dua dimensi.
 - Pada Grid ada 2 jenis yaitu grid container dan grid item.
 
 
-### **Bootstrap**
-- Bootstrap adalah salah satu framework opensource yang berfungsi membuat suatu responsive website
-- Komponen utama bootstrap :
+## **Bootstrap**
+Bootstrap adalah salah satu framework css open source yang dapat membantu kita dalam membangun web responsif dengan cepat.
+### **Komponen utama bootstrap** :
   - bootstrap.css
   - bootstrap.js
-- Cara konfigurasi bootstrap :
+### **Cara konfigurasi bootstrap :**
   - Membuat tag boostrap di head. Cara memanggil css bootstrap dengan menggunakan href lalu mengganti link href css lokal dengan link boostrap online.
-- Contoh penggunaan content bootstrap :
+### ***Contoh penggunaan content bootstrap :***
   - CSS : bootstrap.min.css, bootstrap-grid.css, dll
   - JS : bootstrap.bundle.js, bootstrap.min.js, dll
 - Komponen Bootstrap sebagian besar dibangun dengan base-modifier nomenclature.Contohnya mengelompokkan beberapa properti kedalam kelas dasar seperti .btn, seperti .btn-primary or .btn-success.
@@ -126,41 +159,41 @@ const renderData = (data) => {
   );
   ```
 
-- Kapan kita menggunakan bootstrap?
-  - Boostrap digunakan ketika membuat website sederhana dan tidak memerlukan load lama
-- Layout pada boostrap :
-  - Breakpoints merupakan suatu cara yang dilakukan untuk membuat desain responsif dengan mengontrol kapan tata letak yang disesuaikan dengan ukuran perangkat
-    tertentu.
-    - Breakpoints pada bootstrap ada 5 yaitu sm, md, lg, xl dan xxl.
-    - Setiap breakpoint dipilih untuk menampung container yang lebarnya 12 dengan sehingga tersusun rapi. Breakpoint juga mewakili subset ukuran perangkat umum dan
-    dimensi area pandang.
- - Container adalah blok dasar atau pembungkus boostrap yang terdiri dari contain, pad dan align  yang menyelaraskan konten website dalam perangkat atau area      
-    pandang tertentu.
-   - Terdapat 3 container pada boostrap yaitu :
+### **Kapan kita menggunakan bootstrap?**
+Boostrap digunakan ketika membuat website sederhana dan tidak memerlukan load lama
+### **Layout pada boostrap :**
+Breakpoints merupakan suatu cara yang dilakukan untuk membuat desain responsif dengan mengontrol kapan tata letak yang disesuaikan dengan ukuran perangkat tertentu. Breakpoints pada bootstrap ada 5 yaitu sm, md, lg, xl dan xxl. Setiap breakpoint dipilih untuk menampung container yang lebarnya 12 dengan sehingga tersusun rapi. 
+Breakpoint juga mewakili subset ukuran perangkat umum dan dimensi area pandang.
+
+### **Container**
+Container adalah blok dasar atau pembungkus boostrap yang terdiri dari contain yang berguna untuk menyelaraskan konten website dalam perangkat atau area pandang tertentu.
+
+### **Terdapat 3 container pada boostrap yaitu :**
     - .container, yang menerapkan lebar maksimum pada setiap breakpoint responsif
     - .container-{breakpoint}, menerapkan lebar 100% sampai dengan breakpoint yang ditentukan.
     - .container-fluid, menerapkan 100% ukurannya dari breakpoints
- - Grid System pada bootstrap yang terdiri dari 12 kolom default.
- - Grid system pada bootstrap menggunakan container,baris dan kolom untuk menata dan menyelaraskan konten,yang dibangun menggunakan flexbox dan itu sudah responsive.
+
+ - Grid System pada bootstrap terdiri dari 12 kolom default.
+ - Grid system pada bootstrap menggunakan container, row dan column.
  
   - contoh penggunaan grid system
    ``` 
      <div class="container text-center">
      <div class="row">
-      <div class="col">
+      <div class="col col-md col-xl">
         Column
       </div>
-      <div class="col">
+      <div class="col col-md col-xl">
         Column
       </div>
-      <div class="col">
+      <div class="col  col-md col-xl">
         Column
       </div>
      </div>
      </div>
    ```
-- Grid system bootstrap :
-  - .col-lg digunakan untuk mengatur grid pada ukuran monitor yang besar
-  - .col-md digunakan pada monitor komputer berukuran sedang
-  - .col-sm digunakan untuk mengatur monitor pada tablet
-  - .col-xs digunakan untuk mengatur monitor pada handphone 
+### **Breakpoint Grid pada bootstrap :**
+  - `.col-lg` : digunakan untuk mengatur grid layout pada monitor ukuran besar.
+  - `.col-md` : digunakan pada layout komputer berukuran sedang.
+  - `.col-sm` : digunakan untuk mengatur layout tablet.
+  - `.col` : digunakan untuk mengatur layout handphone. 
